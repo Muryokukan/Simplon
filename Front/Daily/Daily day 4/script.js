@@ -61,6 +61,7 @@ console.log(1 === true); // false car types différents
 // Exercice 5: Identifier null et undefined
 
 // Pour chaque variable ci-dessous, déterminez si elle vaut null, undefined ou autre chose
+
 let a;
 let b = null;
 let c = 0;
@@ -70,15 +71,6 @@ let f = {};
 let g = [];
 let h = function() {};
 
-// Exercice 6: Manipuler null et undefined
-
-// Écrivez une fonction qui prend un paramètre et retourne:
-// - "null" si le paramètre est null
-// - "undefined" si le paramètre est undefined
-// - "défini" dans les autres cas
-// Testez votre fonction avec différentes valeurs
-
-// 4. if/else, ternaire
 // Exercice 7: Convertir if/else en ternaire
 
 // Convertissez les structures if/else suivantes en expressions ternaires
@@ -119,15 +111,21 @@ console.log(mention)
 // Retourne "négatif" si le nombre est négatif
 // Retourne "zéro" si le nombre est 0
 
-// function classerNombre(nombre) {
-//     let o = nombre;
-//     return o == 0 
-//            ? "zéro"
-//              // Sinon 
-//               : (o > 0 
-//               ? (o % 2 === 0 ? "positif pair" : "positif impair") 
-//               : "négatif");
-// }
+function classerNombre(nombre) {
+    let o = nombre;
+    return o == 0 
+           ? "zéro"
+             // Sinon 
+              : (o > 0 
+              ? (o % 2 === 0 ? "positif pair" : "positif impair") 
+              : "négatif");
+}
+
+// Test
+console.log(classerNombre(0));    // "zéro"
+console.log(classerNombre(4));    // "positif pair"
+console.log(classerNombre(7));    // "positif impair"
+console.log(classerNombre(-3));   // "négatif"
 
 // Si j'appelle classerNombre(0) :
 
@@ -190,48 +188,32 @@ console.log(getNom('')); // Retourne anonymous
 // - Retourne le premier élément du tableau si le tableau n'est pas vide
 // - Retourne "Tableau vide" si le tableau est vide
 
-function classerNombre(nombre) {
-    return nombre === 0 
-           ? "zéro" 
-           : (nombre > 0 
-              ? (nombre % 2 === 0 ? "positif pair" : "positif impair") 
-              : "négatif");
+function getPremierElement(tableau) {
+    return tableau.length && tableau[0] || "Tableau vide";
 }
 
-// Test
-console.log(classerNombre(0));    // "zéro"
-console.log(classerNombre(4));    // "positif pair"
-console.log(classerNombre(7));    // "positif impair"
-console.log(classerNombre(-3));   // "négatif"
+// Tests
+console.log(getPremierElement([10, 20, 30]));  // 10
+console.log(getPremierElement(["a", "b", "c"]));  // "a"
+console.log(getPremierElement([]));
 
 
+// ----------------------------------------------------------------------------------------------------------------
 
-// 6. ?? (Coalescence des nulles)
-// Exercice 12: Différencier || et ??
+// let i = 0;
+// while (++i < 5) alert( i ); // Pre-incrémentation
 
-// Pour chaque paire de codes, prédire les résultats et expliquer la différence
-// 1.
+// let i = 0;
+// while (i++ < 5) alert( i ); // Post-incrémentation
 
-// let aa = 0 || "valeur par défaut";
-// let bb = 0 ?? "valeur par défaut";
+let i = 0;
+while (i < 3) {
+    alert( `number ${i}!` );
+    i++;
+  }
 
-// // 2.
-// let cc = "" || "chaîne vide";
-// let dd = "" ?? "chaîne vide";
-
-// // 3.
-// let ee = null || "valeur null";
-// let ff = null ?? "valeur null";
-
-// // 4.
-// let gg = undefined || "valeur undefined";
-// let hh = undefined ?? "valeur undefined";
-
-// Exercice 13: Utiliser la coalescence des nulles
-
-// Créez une fonction qui prend un objet utilisateur et affiche ses propriétés
-// La fonction doit afficher des valeurs par défaut si certaines propriétés sont undefined ou null
-// Exemple:
-// Nom: nom_utilisateur (ou "Non renseigné" si null/undefined)
-// Âge: age_utilisateur (ou "Non renseigné" si null/undefined)
-// Email: email_utilisateur (ou "Non renseigné" si null/undefined)
+//   let i = 0;
+// while (i < 3) {
+//   alert( `number ${i}!` );
+//   i++;
+// }
