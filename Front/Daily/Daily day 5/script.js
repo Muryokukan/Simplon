@@ -179,8 +179,6 @@ let i = 0
 
 let n = prompt("Donner un nombre");
 
-n = parseInt(n);
-
 if (n >= 0) {
   for (let i = 0; i <= n; i += 2) {
     alert(i);
