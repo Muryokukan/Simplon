@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             zoomTimer = setTimeout(() => {
                 is3DActive = true;
                 card.classList.add('active-3d');
-            }, 40);
+            }, 40); // 40 ms
         });
         
         // When mouse moves over the card
