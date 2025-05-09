@@ -2,45 +2,45 @@
 // Exercice 1: Prédire le résultat
 
 // Écrivez ce que va afficher chaque console.log ci-dessous et expliquez pourquoi
-console.log(5 == "5");
-console.log(5 === "5");
-console.log(0 == false);
-console.log(0 === false);
-console.log([] == 0);
-console.log({} == "[object Object]");
+// console.log(5 == "5");
+// console.log(5 === "5");
+// console.log(0 == false);
+// console.log(0 === false);
+// console.log([] == 0);
+// console.log({} == "[object Object]");
 
 // Exercice 2: Créer un tableau de paires de valeurs et vérifier leur égalité
 
-const paire1 = [5, "5"];
-const paire2 = [0, false];
-const paire3 = [null, undefined];
-const paire4 = ["", false];
-const paire5 = [1, true];
+// const paire1 = [5, "5"];
+// const paire2 = [0, false];
+// const paire3 = [null, undefined];
+// const paire4 = ["", false];
+// const paire5 = [1, true];
 
-// Test de la paire 1: nombre et chaîne
-console.log("Paire 1: nombre et chaîne");
-console.log(5 == "5");  // true car le "5" est converti en nombre
-console.log(5 === "5"); // false car types différents
+// // Test de la paire 1: nombre et chaîne
+// console.log("Paire 1: nombre et chaîne");
+// console.log(5 == "5");  // true car le "5" est converti en nombre
+// console.log(5 === "5"); // false car types différents
 
-// Test de la paire 2: zéro et false
-console.log("\nPaire 2: zéro et false");
-console.log(0 == false);  // true car false équivaut à 0
-console.log(0 === false); // false car types différents
+// // Test de la paire 2: zéro et false
+// console.log("\nPaire 2: zéro et false");
+// console.log(0 == false);  // true car false équivaut à 0
+// console.log(0 === false); // false car types différents
 
-// Test de la paire 3: null et undefined
-console.log("\nPaire 3: null et undefined");
-console.log(null == undefined);  // true car considérés équivalents
-console.log(null === undefined); // false car types différents
+// // Test de la paire 3: null et undefined
+// console.log("\nPaire 3: null et undefined");
+// console.log(null == undefined);  // true car considérés équivalents
+// console.log(null === undefined); // false car types différents
 
-// Test de la paire 4: chaîne vide et false
-console.log("\nPaire 4: chaîne vide et false");
-console.log("" == false);  // true car "" est converti en 0
-console.log("" === false); // false car types différents
+// // Test de la paire 4: chaîne vide et false
+// console.log("\nPaire 4: chaîne vide et false");
+// console.log("" == false);  // true car "" est converti en 0
+// console.log("" === false); // false car types différents
 
-// Test de la paire 5: 1 et true
-console.log("\nPaire 5: 1 et true");
-console.log(1 == true);  // true car true équivaut à 1
-console.log(1 === true); // false car types différents
+// // Test de la paire 5: 1 et true
+// console.log("\nPaire 5: 1 et true");
+// console.log(1 == true);  // true car true équivaut à 1
+// console.log(1 === true); // false car types différents
 
 // 2. La comparaison entre 2 chaînes de caractères
 // Exercice 3: Comparer des chaînes alphabétiquement
@@ -62,43 +62,43 @@ console.log(1 === true); // false car types différents
 
 // Pour chaque variable ci-dessous, déterminez si elle vaut null, undefined ou autre chose
 
-let a;
-let b = null;
-let c = 0;
-let d = "";
-let e = false;
-let f = {};
-let g = [];
-let h = function() {};
+// let a;
+// let b = null;
+// let c = 0;
+// let d = "";
+// let e = false;
+// let f = {};
+// let g = [];
+// let h = function() {};
 
 // Exercice 7: Convertir if/else en ternaire
 
 // Convertissez les structures if/else suivantes en expressions ternaires
 // 1.
-let age = 6;
-// let age = 19;
+// let age = 6;
+// // let age = 19;
 
-if (age >= 18) {
-    statut = "adulte";
-} else {
-    statut = "mineur";
-}
+// if (age >= 18) {
+//     statut = "adulte";
+// } else {
+//     statut = "mineur";
+// }
 
-console.log(statut)
-// 2.
-let score = 79;
+// console.log(statut)
+// // 2.
+// let score = 79;
 
-if (score >= 90) {
-    mention = "Excellent";
-} else if (score >= 75) {
-    mention = "Bien";
-} else if (score >= 50) {
-    mention = "Passable";
-} else {
-    mention = "Insuffisant";
-}
+// if (score >= 90) {
+//     mention = "Excellent";
+// } else if (score >= 75) {
+//     mention = "Bien";
+// } else if (score >= 50) {
+//     mention = "Passable";
+// } else {
+//     mention = "Insuffisant";
+// }
 
-console.log(mention)
+// console.log(mention)
 
 // ----------------------------------------------------------------------------------------------------------------
 
