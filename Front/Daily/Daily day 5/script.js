@@ -23,7 +23,7 @@
 // let perimetre = 2 * Math.PI * rayon;
 // alert(`Le périmètre du cercle est : ${perimetre.toFixed(2)}`); // toFixed pour les décimales
 
-// let rayon = prompt("Quel est le rayon du cercle ?");
+// let rayon = prompt("Quel est le rayon du cercle?");
 // alert("Le périmètre est : " + (2 * Math.PI * rayon));
 
 
