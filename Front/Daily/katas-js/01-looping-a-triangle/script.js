@@ -22,6 +22,24 @@
 
 
 
-for (let abc = 1; abc < 8; i++) {
-    console.log(abc.length);
-};
+// for (let abc = 1; abc < 8; abc++) {
+//     console.log("#".repeat(abc));
+// };
+
+
+
+// let ligne = "";
+
+// for (let i = 1; i <= 7; i++) {
+//     ligne += "#";
+//     console.log(ligne);
+// };
+
+// let ligne = "";
+
+// for (let i = 1; i <= 7; i++) {
+    
+//     ligne += "PHP";
+//     console.log(ligne);
+// }
+ 
