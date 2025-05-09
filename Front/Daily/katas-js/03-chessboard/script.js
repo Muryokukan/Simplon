@@ -21,4 +21,30 @@
 //  for any size, outputting a grid of the given width and height.
 
 let size = 3;
-let chessboard = "";
+let a = "# # # # ";
+let b = " # # # #";
+
+for (let i = 0; i < size; i++) {
+    if (i % 2 === 0) {
+        console.log(a);
+    } else {
+        console.log(b);
+    }
+};
+
+
+// let size = 8;
+// let chessboard = "";
+
+// for (let row = 0; row < size; row++) {
+//     for (let column = 0; column < size; column++ ) {
+//         if ((row + column) % 2 === 0) {
+//             chessboard += "#";
+//         } else {
+//             chessboard += " ";
+//         }
+//     }
+//     chessboard += "\n";
+// };
+
+// console.log(chessboard);
