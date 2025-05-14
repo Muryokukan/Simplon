@@ -92,3 +92,4 @@ function traiterOption(option) {
 // Le choix entre for, while et do while dépend du contexte
 // switch offre une alternative plus lisible aux multiples conditions
 // Attention aux boucles infinies qui peuvent bloquer le programme
+
