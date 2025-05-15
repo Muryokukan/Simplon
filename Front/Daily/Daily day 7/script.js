@@ -29,7 +29,7 @@
 //         nomJour = "Jour invalide";
 
 
-// console.log("Aujourd'hui c'est " + nomJour);  // Affichera "Aujourd'hui c'est Mercredi"
+// console.log("Aujourd'hui c'est " + nomJour);
 
 // -----------------------------------------------------------------------------------------------------
 
