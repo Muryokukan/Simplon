@@ -222,5 +222,43 @@
 //     return numbers[0] + numbers[1];
 // }
 
-
 // console.log(sumTwoSmallestNumbers(["42", "77", "3"]))
+
+// function maskify(cc) {
+//     return cc.slice(0, -4).replace(/./g, '#') + cc.slice(-4);
+//   }
+
+// const binaryArrayToNumber = arr => {
+//     switch (arr.join(',')) {
+//       case '0,0,0,0': return 0;
+//       case '0,0,0,1': return 1;
+//       case '0,0,1,0': return 2;
+//       case '0,0,1,1': return 3;
+//       case '0,1,0,0': return 4;
+//       case '0,1,0,1': return 5;
+//       case '0,1,1,0': return 6;
+//       case '0,1,1,1': return 7;
+//       case '1,0,0,0': return 8;
+//       case '1,0,0,1': return 9;
+//       case '1,0,1,0': return 10;
+//       case '1,0,1,1': return 11;
+//       case '1,1,0,0': return 12;
+//       case '1,1,0,1': return 13;
+//       case '1,1,1,0': return 14;
+//       case '1,1,1,1': return 15;
+//       default: return NaN;
+//     }
+//   };
+
+// const binaryArrayToNumber = arr => {
+//     let result = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//       result = (result << 1) | arr[i];
+//     }
+//     return result;
+//   };
+  
+
+function sumTwoSmallestNumbers(numbers) {  
+    // Code here
+  }
