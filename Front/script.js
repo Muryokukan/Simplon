@@ -113,3 +113,16 @@
 //     8: 'Neptune'
 //   }[id]
 // }
+
+// function findAverage(array) {
+//     return array.length === 0 ? 0 : array.reduce((a, b) => a + b, 0) / array.length;
+//   }
+
+// function findAverage(array) {
+//     return array.reduce((a, b) => a + b, 0) / array.length || 0;
+//   }
+  
+
+// function grow(x){
+//     return x.reduce((a , b) => a * b, 1); // Si on met 0, ça multiplie par 0 done rend 0.
+//   }

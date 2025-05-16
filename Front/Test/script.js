@@ -429,6 +429,17 @@
 //     return phrases[index];
 // }
 
+// function basicOp(operation, value1, value2){
+//     switch (operation) {
+//     case '+':
+//       return value1 + value2;
+//     case '-':
+//       return value1 - value2;
+//     case '*':
+//       return value1 * value2;
+//     case '/':
+//       return value1 / value2;
+// }}
 
 // function greet(language) {
 // 	return {
@@ -490,3 +501,39 @@
 //     }
 //     return sum;
 //   }
+
+// function countSheeps(sheep) {
+//     let count = 0;
+    
+//     for (let i = 0; i < sheep.length; i++) {
+//       if (sheep[i]) {
+//         count++
+//       }
+//     }
+//     return count;
+//   }
+
+// function century(year) {
+//     return Math.ceil( year / 100)
+//   }
+
+// function paperwork(n, m) {
+//     if (n <= 0 || m <= 0) { return 0;}
+//     else { return n * m;}
+//   }
+
+// function past(h, m, s){
+//     h = h * 3600000;
+//     m = m * 60000;
+//     s = s * 1000;
+//     return h + m + s;
+//   }
+
+// function findNeedle(haystack) {
+//     const index = haystack.indexOf("needle");
+//     if (index === -1) {
+//       return "needle not found";
+//     }
+//     return `found the needle at position ${index}`;
+//   }
+
