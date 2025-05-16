@@ -126,3 +126,60 @@
 // function grow(x){
 //     return x.reduce((a , b) => a * b, 1); // Si on met 0, ça multiplie par 0 done rend 0.
 //   }
+
+//   function squareDigits(num) {
+//     // Convert the number to a string
+//     const str = num.toString();
+    
+//     // Split the string into an array of digits
+//     const digits = str.split('');
+    
+//     // Square each digit and join them back into a string
+//     const squaredStr = digits.map(digit => parseInt(digit) ** 2).join('');
+    
+//     // Convert the final string back to a number
+//     return Number(squaredStr);
+//   }
+  
+
+// function squareDigits(num) {
+//     const str = num.toString();
+//     const digits = str.split('');
+//     const squaredStr = digits.map(digit => parseInt(digit) ** 2).join('')
+//     return Number(squaredStr);
+// }
+
+// console.log(squareDigits(1145));
+
+// function filter_list(l) {
+//     return l.filter(Number.isInteger)
+//   };
+
+// console.log(filter_list([1,2,'aasf','1','123',123]))
+
+// var isSquare = function(n){
+//     if (n >= 0 && Math.sqrt(n) % 1 === 0) {return true;}
+//     else { return false;}
+//   }
+
+
+// function isIsogram(str){
+//     let occurences = {}; 
+//       for (char of str.toLowerCase()) {
+//         if (occurences[char]) {
+//           occurences[char]++;
+//         } else {
+//           occurences[char] = 1;
+//         }
+//       }
+      
+//       for (let char in occurences) {
+//         if (occurences[char] > 1) return false;
+//       }
+      
+//       return true;
+//   }
+// console.log(count("Abreuvoir"))
+// console.log(count("Dermatoglyphics"))
+
+
