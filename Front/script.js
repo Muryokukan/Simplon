@@ -183,3 +183,44 @@
 // console.log(count("Dermatoglyphics"))
 
 
+// function XO(str) {
+//     const lowerCaseStr = str.toLowerCase().split('');
+//     let xCount = 0;
+//     let oCount = 0;
+  
+//     lowerCaseStr.forEach(char => {
+//       if (char === 'x') xCount++;
+//       if (char === 'o') oCount++;
+//     });
+  
+//     if (xCount == oCount) { return true} else { return false;}
+//   }
+  
+//   console.log(XO("oxoxox"))
+//   console.log(XO("oxoxsox"))
+//   console.log(XO("oxoxffxxxox"))
+//   console.log(XO("fff"))
+
+// function findShort(s){
+//     return Math.min(...s.split(' ').map(word => word.length));
+//   }
+  
+//   In this code:
+  
+//   s.split(' ') splits the string into an array of words.
+//   map(word => word.length) creates a new array containing the lengths of the words.
+//   Math.min(...array) finds the minimum value in the array of lengths.
+//   To return the shortest word itself (not its length), you can use the reduce() method:
+  
+// function findShort(s){
+//    return s.split(' ').reduce((a, b) => a.length <= b.length ? a : b);
+//  }
+
+
+// function sumTwoSmallestNumbers(numbers) {
+//     numbers = numbers.map(Number).sort((a, b) => a - b);
+//     return numbers[0] + numbers[1];
+// }
+
+
+// console.log(sumTwoSmallestNumbers(["42", "77", "3"]))
