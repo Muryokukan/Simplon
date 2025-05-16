@@ -5,7 +5,10 @@ https://danielkummer.github.io/git-flow-cheatsheet/index.fr_FR.html
 https://learngitbranching.js.org/
 https://www.education.gouv.fr/bo/19/Hebdo47/CTNR1932424K.htm
 https://www.deeplearning.ai/short-courses/prompt-engineering-with-llama-2/
-https://korben.info/sql-police-department-apprendre-sql-enquetes-policieres.html
+https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/detaching-a-fork?platform=linux
+https://github.com/HachemiH/formation-cda-bdd
+https://easy-algorithms.netlify.app/posts/post-3/
+https://github.com/Yousra0225/battleship-game
 
 	-- Clean Code --
 https://docs.google.com/presentation/d/1Az_7MyRIYKsD-TQblh6-fA8hTpxE35tQhFr9-nxlFKY/edit#slide=id.g321bf8b3c39_0_1
@@ -15,5 +18,20 @@ https://docs.google.com/presentation/d/1iw3snJGH3-NjcBLx8LcgM8QkHN1wDx71l15kWaJs
 
 	-- Docker -- 
 https://docs.google.com/presentation/d/1wVmQOgIGmfKRh_5eX6Fyqp1wpjVy9lJoiv2u3OAqKtw/edit?usp=sharing
+
+    -- Sécurité web --
+https://youtu.be/zVu-KEO8hps?si=neskin2KKLl-ZP1G
+
+    -- CV -- 
+https://www.simplon.co/articles/les-8-commandements-du-developpeur-pour-se-demarquer-sur-linkedin
+
+    -- Méthode Agile --
+Kollabe
+
+    -- SQL -- 
+https://joins.spathon.com/
+https://korben.info/sql-police-department-apprendre-sql-enquetes-policieres.html
+https://mystery.knightlab.com/
+https://sqlbolt.com/
 
 
