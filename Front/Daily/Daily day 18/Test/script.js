@@ -79,61 +79,72 @@
 
 // --------------------------------------------------
 
+class Player {
+    constructor(name) {
+        this.name = name;
+        this.health = 100;
+        this.gold = 100;
+        this.damageBonus = 0;
+        this.inventory = [];
+    }
+    
+    attack() {
+        const damage = 20 + this.damageBonus;
+        console.log(`${this.name} attacks for ${damage} damage!`);
+    }
+}
+
 class Item {
     constructor(name, price, type) {
-        // Properties:
-        // - name (string)
-        this.name = name
-        // - price (number) 
+        this.name = name;
         this.price = price; 
-        // - type (string: "weapon", "potion", "armor")
         this.type = type;
     }
     
     use(player) {
         if (this.type === "weapon") {
-            player.damageBonus += 10
-            console.log(`${player.name} has equipped a sword ! Damage increase +10`)
+            player.damageBonus += 10;
+            console.log(`${player.name} has equipped a sword ! Damage increase +10`);
         } else if (this.type === "potion") {
-            player.health = Math.min(player.health + 30, 100); // Cap to 100 max
-            console.log(`${player.name} healed for 30 hp ! (cannot bypass 100 threshold)`)
+            player.health = Math.min(player.health + 30, 100);
+            console.log(`${player.name} healed for 30 hp ! (cannot bypass 100 threshold)`);
         } else if (this.type === "armor") {
-            player.health += 20
-            console.log(`${player.name} has equipped an armor ! Health + 20`)
+            player.health += 20;
+            console.log(`${player.name} has equipped an armor ! Health + 20`);
         }
     }
 }
 
-
 class Shop {
     constructor() {
-        // Property: items (array of Item objects)
-        this.item = [];
+        this.items = [];
     }
     
     addItem(item) {
-        // Add item to shop inventory
         this.items.push(item); 
     }
     
     displayItems() {
-        // Show all available items with prices
         this.items.forEach((items, index) => {
-            console.log(`${index + 1}. ${items.name} - ${items.price} gold (${item.type})`);
+            console.log(`${index + 1}. ${items.name} - ${items.price} gold (${items.type})`);
         });
     }
     
     sell(itemName, player) {
-        // Find item by name
-        // Check if player has enough money
-        // Remove money from player
-        // Remove item from shop
-        // Use item on player automatically
-        
-        // Display success/failure message
+        const foundItem = this.items.find(item => item.name === itemName);
+        if (!foundItem) { 
+            return "The item doesn't exist";
+        }
+        if (player.gold < foundItem.price) {
+            return "Not enough gold!";
+        } 
+        player.gold -= foundItem.price;
+        const index = this.items.indexOf(foundItem);
+        this.items.splice(index, 1);
+        foundItem.use(player);
+        return `You bought ${foundItem.name} for ${foundItem.price} gold!`;
     }
 }
-
 
 const hero = new Player("Link");
 const shop = new Shop();
@@ -143,4 +154,11 @@ shop.addItem(new Item("Health Potion", 20, "potion"));
 
 shop.displayItems();
 shop.sell("Sword", hero);
-hero.attack(); // Should show bonus damage!
+hero.attack();
+
+
+
+
+// const arr = [1, 2, 3];
+// const result = arr.find(x => x === 999);
+// console.log(result);

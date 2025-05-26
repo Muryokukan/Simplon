@@ -3,13 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RPG Shop Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="game-container">
+        <header>
+            <h1>⚔️ RPG Shop Game</h1>
+        </header>
+        
+        <div class="player-stats">
+            <h2>👤 Player: Link</h2>
+            <div class="stats">
+                <span class="health">❤️ Health: 100</span>
+                <span class="gold">💰 Gold: 100</span>
+                <span class="damage">⚔️ Damage: 20</span>
+            </div>
+        </div>
+        
+        <div class="shop-section">
+            <h2>🏪 Shop</h2>
+            <div class="shop-items">
+                <div class="item">
+                    <span>🗡️ Sword - 50 gold (weapon)</span>
+                    <button onclick="buyItem('Sword')">Buy</button>
+                </div>
+                <div class="item">
+                    <span>🧪 Health Potion - 20 gold (potion)</span>
+                    <button onclick="buyItem('Health Potion')">Buy</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="console">
+            <h3>📜 Game Log:</h3>
+            <div id="output"></div>
+        </div>
+        
+        <div class="actions">
+            <button onclick="playerAttack()">⚔️ Attack</button>
+            <button onclick="showInventory()">🎒 Inventory</button>
+        </div>
+    </div>
     
-    
-
-
     <script src="script.js"></script>
 </body>
 </html>
