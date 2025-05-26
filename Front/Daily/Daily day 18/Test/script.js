@@ -34,32 +34,83 @@
 
 // ------------------------------------------------
 
-class Joueur {
-    constructor(nom) {
-        // À compléter
+// class Joueur {
+//     constructor(nom) {
+//         this.nom = nom;
+//         this.niveau = 1;
+//         this.experience = 0;
+//         this.experienceRequise = 100;
+//     }
+    
+//     gagnerExperience(points) {
+//         // Ajouter les points
+//         this.experience += points
+//         // Vérifier si on peut monter de niveau
+//         while (this.experience >= this.experienceRequise) {
+//         this.monterNiveau();
+//     }
+    
+//     monterNiveau() {
+//         // Augmenter le niveau
+//         this.experience -= this.experienceRequise;
+//         this.niveau++;
+//         // Recalculer l'XP requise pour le prochain niveau
+//         this.experienceRequise = 50 + (this.niveau * 50);
+//         // Afficher un message de félicitations
+//         console.log(`Félicitations ! ${this.nom} passe niveau ${this.niveau} !`);
+//     }
+    
+//     attaquer() {
+//         // Calculer et afficher les dégâts
+//         const degats = this.niveau * 10;
+//         console.log(`${this.nom} attaque et fait ${degats} déga^ts !`)
+//     }
+    
+//     afficherStatut() {
+//         // Afficher toutes les infos du joueur
+//         return `${this.nom} - niveau ${this.niveau}`
+//     }
+// }
+
+// // Test :
+// const joueur = new Joueur("Hero");
+// joueur.gagnerExperience(249); // Doit monter niveau 2
+// joueur.attaquer(); // Doit faire 20 dégâts
+
+// --------------------------------------------------
+
+class Shop {
+    constructor(name , price , type) {
+        // Property: items (array of Item objects)
+        
     }
     
-    gagnerExperience(points) {
-        // Ajouter les points
-        // Vérifier si on peut monter de niveau
+    addItem(item) {
+        // Add item to shop inventory
     }
     
-    monterNiveau() {
-        // Augmenter le niveau
-        // Recalculer l'XP requise pour le prochain niveau
-        // Afficher un message de félicitations
+    displayItems() {
+        // Show all available items with prices
     }
     
-    attaquer() {
-        // Calculer et afficher les dégâts
-    }
-    
-    afficherStatut() {
-        // Afficher toutes les infos du joueur
+    sell(itemName, player) {
+        // Find item by name
+        // Check if player has enough money
+        // Remove money from player
+        // Remove item from shop
+        // Use item on player automatically
+        
+        // Display success/failure message
     }
 }
 
-// Test :
-const joueur = new Joueur("Hero");
-joueur.gagnerExperience(120); // Doit monter niveau 2
-joueur.attaquer(); // Doit faire 20 dégâts
+
+const hero = new Player("Link");
+const shop = new Shop();
+
+shop.addItem(new Item("Sword", 50, "weapon"));
+shop.addItem(new Item("Health Potion", 20, "potion"));
+
+shop.displayItems();
+shop.sell("Sword", hero);
+hero.attack(); // Should show bonus damage!
