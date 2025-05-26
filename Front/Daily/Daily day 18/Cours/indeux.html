@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript POO - Guide Junior</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding-left: 15vw;
+            padding-right: 15vw;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #34495e;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #2980b9;
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        h4 {
+            color: #27ae60;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .highlight {
+            background: #f39c12;
+            color: white;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .important {
+            background: #e8f5e8;
+            border-left: 5px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .nav {
+            background: #34495e;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin-right: 20px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .nav a:hover {
+            background: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 JavaScript POO - Guide pour Junior Développeur</h1>
+        
+        <nav class="nav">
+            <a href="#intro">Introduction</a>
+            <a href="#classes">Classes</a>
+            <a href="#encapsulation">Encapsulation</a>
+            <a href="#heritage">Héritage</a>
+            <a href="#polymorphisme">Polymorphisme</a>
+            <a href="#relations">Relations</a>
+        </nav>
+
+        <section id="intro">
+            <h2>🤔 Est-ce que JavaScript est un langage Orienté Objet ?</h2>
+            
+            <div class="important">
+                <p><strong>Réponse courte :</strong> Oui et non ! JavaScript est un langage <span class="highlight">multi-paradigme</span> qui supporte la POO, mais d'une manière différente des langages comme Java ou C#.</p>
+            </div>
+
+            <p>JavaScript utilise un système de <strong>prototypes</strong> plutôt qu'un système de classes traditionnel (même si ES6 a introduit la syntaxe des classes). Cela signifie que :</p>
+            
+            <ul>
+                <li>✅ On peut créer des objets</li>
+                <li>✅ On peut utiliser l'héritage</li>
+                <li>✅ On peut encapsuler des données</li>
+                <li>✅ On peut implémenter le polymorphisme</li>
+            </ul>
+
+            <h3>🎯 Qu'est-ce que l'Abstraction ?</h3>
+            <p>L'abstraction consiste à <strong>simplifier la complexité</strong> en cachant les détails d'implémentation et en exposant seulement les fonctionnalités essentielles.</p>
+            
+            <div class="code-block">
+// Exemple d'abstraction
+class Voiture {
+    constructor(marque, modele) {
+        this.marque = marque;
+        this.modele = modele;
+        this.moteurDemarre = false;
+    }
+    
+    // Méthode abstraite - on cache la complexité du démarrage
+    demarrer() {
+        // Complexité cachée : injection carburant, allumage, etc.
+        this.moteurDemarre = true;
+        console.log("🚗 La voiture a démarré !");
+    }
+    
+    // L'utilisateur n'a pas besoin de connaître le processus interne
+    conduire() {
+        if (this.moteurDemarre) {
+            console.log("🏎️ Vrooom !");
+        } else {
+            console.log("❌ Démarrez d'abord la voiture !");
+        }
+    }
+}
+            </div>
+        </section>
+
+        <section id="classes">
+            <h2>🏗️ Les Classes en JavaScript</h2>
+            
+            <h3>🧱 Qu'est-ce qu'une Classe ?</h3>
+            <p>Une classe est un <span class="highlight">modèle</span> ou un <span class="highlight">blueprint</span> qui définit les propriétés et méthodes que doivent avoir les objets créés à partir de cette classe.</p>
+
+            <h3>🆚 Classes Concrètes vs Abstraites</h3>
+            
+            <h4>Classes Concrètes :</h4>
+            <ul>
+                <li>Peuvent être <strong>instanciées</strong> directement</li>
+                <li>Toutes leurs méthodes sont implémentées</li>
+            </ul>
+            
+            <h4>Classes Abstraites :</h4>
+            <div class="warning">
+                <p><strong>Note :</strong> JavaScript ne supporte pas nativement les classes abstraites, mais on peut les simuler.</p>
+            </div>
+            
+            <div class="code-block">
+// Simulation d'une classe abstraite
+class Animal {
+    constructor(nom) {
+        if (this.constructor === Animal) {
+            throw new Error("Classe abstraite - ne peut pas être instanciée");
+        }
+        this.nom = nom;
+    }
+    
+    // Méthode abstraite (doit être redéfinie)
+    faireBruit() {
+        throw new Error("Méthode abstraite - doit être implémentée");
+    }
+}
+
+// Classe concrète
+class Chien extends Animal {
+    faireBruit() {
+        return "Woof! 🐕";
+    }
+}
+            </div>
+
+            <h3>🔧 Le Constructeur</h3>
+            <p>Le constructeur est une <strong>méthode spéciale</strong> qui s'exécute automatiquement lors de la création d'un objet.</p>
+            
+            <div class="code-block">
+class Personne {
+    constructor(nom, age) {
+        // Initialisation des propriétés
+        this.nom = nom;
+        this.age = age;
+        this.dateCreation = new Date();
+        console.log(`✨ Nouvelle personne créée : ${nom}`);
+    }
+}
+
+const alice = new Personne("Alice", 25);
+            </div>
+
+            <h3>📦 Attributs/Propriétés</h3>
+            <p>Les propriétés sont les <strong>variables</strong> qui appartiennent à un objet et stockent son état.</p>
+            
+            <div class="code-block">
+class Smartphone {
+    constructor(marque, modele) {
+        // Propriétés publiques
+        this.marque = marque;
+        this.modele = modele;
+        this.batterie = 100;
+        
+        // Propriété privée (ES2022)
+        #numeroSerie = this.genererNumeroSerie();
+    }
+    
+    genererNumeroSerie() {
+        return Math.random().toString(36).substr(2, 9);
+    }
+}
+            </div>
+
+            <h3>⚡ Méthodes</h3>
+            <p>Les méthodes sont des <strong>fonctions</strong> qui appartiennent à un objet et définissent son comportement.</p>
+
+            <h4>🔄 Différence avec les fonctions :</h4>
+            <ul>
+                <li><strong>Fonction :</strong> Code indépendant, réutilisable</li>
+                <li><strong>Méthode :</strong> Fonction liée à un objet, accède à ses propriétés via <code>this</code></li>
+            </ul>
+
+            <div class="code-block">
+// Fonction indépendante
+function calculerAge(dateNaissance) {
+    return new Date().getFullYear() - dateNaissance.getFullYear();
+}
+
+// Méthode dans une classe
+class Utilisateur {
+    constructor(nom, dateNaissance) {
+        this.nom = nom;
+        this.dateNaissance = dateNaissance;
+    }
+    
+    // Méthode - a accès aux propriétés de l'objet
+    calculerAge() {
+        return new Date().getFullYear() - this.dateNaissance.getFullYear();
+    }
+    
+    sePresenter() {
+        return `Salut, je suis ${this.nom} et j'ai ${this.calculerAge()} ans!`;
+    }
+}
+            </div>
+
+            <h3>🎭 Getters et Setters</h3>
+            <p>Les getters et setters permettent de <strong>contrôler l'accès</strong> aux propriétés d'un objet.</p>
+            
+            <div class="code-block">
+class Temperature {
+    constructor(celsius = 0) {
+        this._celsius = celsius;
+    }
+    
+    // Getter - récupère une valeur
+    get celsius() {
+        return this._celsius;
+    }
+    
+    // Setter - définit une valeur avec validation
+    set celsius(value) {
+        if (value < -273.15) {
+            throw new Error("Température impossible (en dessous du zéro absolu)");
+        }
+        this._celsius = value;
+    }
+    
+    // Getter calculé
+    get fahrenheit() {
+        return (this._celsius * 9/5) + 32;
+    }
+    
+    set fahrenheit(value) {
+        this._celsius = (value - 32) * 5/9;
+    }
+}
+
+const temp = new Temperature();
+temp.celsius = 25;
+console.log(temp.fahrenheit); // 77
+            </div>
+
+            <h3>🏭 Principe d'Instance</h3>
+            <p>Une instance est un <strong>objet concret</strong> créé à partir d'une classe. Chaque instance a ses propres propriétés tout en partageant les méthodes de la classe.</p>
+            
+            <div class="code-block">
+class CompteBancaire {
+    constructor(titulaire, soldeInitial = 0) {
+        this.titulaire = titulaire;
+        this.solde = soldeInitial;
+        this.id = Date.now() + Math.random();
+    }
+}
+
+// Création de plusieurs instances
+const compteAlice = new CompteBancaire("Alice", 1000);
+const compteBob = new CompteBancaire("Bob", 500);
+
+console.log(compteAlice.titulaire); // "Alice"
+console.log(compteBob.titulaire);   // "Bob"
+// Chaque instance est unique !
+            </div>
+        </section>
+
+        <section id="encapsulation">
+            <h2>🔒 Encapsulation</h2>
+            
+            <h3>🎯 Qu'est-ce que l'Encapsulation ?</h3>
+            <p>L'encapsulation consiste à <span class="highlight">regrouper les données et les méthodes</span> dans une classe et à <span class="highlight">contrôler l'accès</span> à ces données.</p>
+            
+            <h3>💡 À quoi sert l'Encapsulation ?</h3>
+            <ul>
+                <li>🛡️ <strong>Protéger les données</strong> contre les modifications non autorisées</li>
+                <li>🎯 <strong>Simplifier l'interface</strong> en cachant la complexité interne</li>
+                <li>🔧 <strong>Faciliter la maintenance</strong> du code</li>
+                <li>🐛 <strong>Réduire les bugs</strong> en contrôlant les accès</li>
+            </ul>
+
+            <h3>🔑 Mots-clés pour l'Encapsulation</h3>
+            
+            <div class="important">
+                <p><strong>En JavaScript (ES2022+) :</strong></p>
+                <ul>
+                    <li><code>#</code> - Propriétés/méthodes privées</li>
+                    <li><code>public</code> - Par défaut (pas de mot-clé)</li>
+                </ul>
+            </div>
+            
+            <div class="code-block">
+class Coffret {
+    // Propriété privée
+    #code;
+    #contenu;
+    
+    constructor(code) {
+        this.#code = code;
+        this.#contenu = [];
+        this.verrouille = true;
+    }
+    
+    // Méthode privée
+    #verifierCode(codeTest) {
+        return this.#code === codeTest;
+    }
+    
+    // Méthodes publiques
+    ouvrir(code) {
+        if (this.#verifierCode(code)) {
+            this.verrouille = false;
+            return "🔓 Coffret ouvert !";
+        } else {
+            return "❌ Code incorrect !";
+        }
+    }
+    
+    ajouterObjet(objet, code) {
+        if (!this.verrouille) {
+            this.#contenu.push(objet);
+            return `✅ ${objet} ajouté au coffret`;
+        }
+        return "🔒 Coffret verrouillé !";
+    }
+}
+
+const monCoffret = new Coffret("1234");
+// monCoffret.#code; // ❌ Erreur ! Propriété privée
+console.log(monCoffret.ouvrir("1234")); // ✅ Fonctionne
+            </div>
+
+            <h3>🌍 Principe de Scope (Portée)</h3>
+            <p>Le scope détermine <strong>où</strong> dans le code une variable ou méthode peut être utilisée.</p>
+            
+            <div class="code-block">
+class ExempleScope {
+    constructor() {
+        this.publique = "Accessible partout"; // Scope : public
+        this.#privee = "Accessible seulement dans la classe"; // Scope : privé
+    }
+    
+    methodePublique() {
+        // Peut accéder aux deux
+        console.log(this.publique);
+        console.log(this.#privee);
+        
+        // Variable locale
+        let locale = "Accessible seulement dans cette méthode";
+        console.log(locale);
+    }
+}
+            </div>
+            
+            <div class="important">
+                <p><strong>Pourquoi le scope est fondamental en POO :</strong></p>
+                <ul>
+                    <li>🎯 Contrôle l'accès aux données</li>
+                    <li>🛡️ Évite les conflits de noms</li>
+                    <li>🔒 Garantit la sécurité des données</li>
+                    <li>📝 Rend le code plus lisible et maintenable</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="heritage">
+            <h2>👨‍👩‍👧‍👦 Héritage</h2>
+            
+            <h3>🎯 À quoi sert l'Héritage ?</h3>
+            <p>L'héritage permet à une classe d'<strong>hériter</strong> des propriétés et méthodes d'une autre classe, favorisant la <span class="highlight">réutilisation du code</span> et établissant des relations hiérarchiques.</p>
+            
+            <h3>✍️ Comment écrit-on l'Héritage ?</h3>
+            <p>En JavaScript, on utilise le mot-clé <code>extends</code> et <code>super</code>.</p>
+            
+            <div class="code-block">
+// Classe parente (superclasse)
+class Vehicule {
+    constructor(marque, modele, annee) {
+        this.marque = marque;
+        this.modele = modele;
+        this.annee = annee;
+        this.vitesse = 0;
+    }
+    
+    accelerer(increment = 10) {
+        this.vitesse += increment;
+        console.log(`🚀 Vitesse: ${this.vitesse} km/h`);
+    }
+    
+    freiner() {
+        this.vitesse = Math.max(0, this.vitesse - 15);
+        console.log(`🛑 Vitesse: ${this.vitesse} km/h`);
+    }
+    
+    getInfo() {
+        return `${this.marque} ${this.modele} (${this.annee})`;
+    }
+}
+
+// Classe enfant (sous-classe)
+class Voiture extends Vehicule {
+    constructor(marque, modele, annee, nombrePortes) {
+        // Appel du constructeur parent
+        super(marque, modele, annee);
+        this.nombrePortes = nombrePortes;
+        this.climatisation = false;
+    }
+    
+    // Méthode spécifique à Voiture
+    activerClimatisation() {
+        this.climatisation = !this.climatisation;
+        console.log(`❄️ Climatisation: ${this.climatisation ? 'ON' : 'OFF'}`);
+    }
+    
+    // Redéfinition (override) d'une méthode héritée
+    getInfo() {
+        return `${super.getInfo()} - ${this.nombrePortes} portes`;
+    }
+}
+
+// Autre classe enfant
+class Moto extends Vehicule {
+    constructor(marque, modele, annee, cylindree) {
+        super(marque, modele, annee);
+        this.cylindree = cylindree;
+    }
+    
+    // Redéfinition avec comportement différent
+    accelerer(increment = 20) {
+        super.accelerer(increment);
+        console.log("🏍️ Vrooooom !");
+    }
+}
+
+// Utilisation
+const maVoiture = new Voiture("Toyota", "Prius", 2023, 4);
+const maMoto = new Moto("Yamaha", "R1", 2023, 1000);
+
+maVoiture.accelerer(); // Hérite de Vehicule
+maVoiture.activerClimatisation(); // Méthode propre à Voiture
+
+maMoto.accelerer(); // Comportement redéfini
+            </div>
+
+            <h3>🤔 Dans quel cas utilise-t-on l'Héritage ?</h3>
+            <ul>
+                <li>📊 <strong>Relation "est-un"</strong> : Un chien EST un animal</li>
+                <li>🔄 <strong>Code répétitif</strong> : Plusieurs classes partagent des propriétés communes</li>
+                <li>🏗️ <strong>Hiérarchie naturelle</strong> : Structure logique parent-enfant</li>
+                <li>🎯 <strong>Spécialisation</strong> : Ajouter des fonctionnalités spécifiques</li>
+            </ul>
+
+            <h3>👨‍👧 Relations Parent → Enfant</h3>
+            <div class="important">
+                <p><strong>L'enfant hérite du parent :</strong></p>
+                <ul>
+                    <li>✅ Toutes les propriétés publiques</li>
+                    <li>✅ Toutes les méthodes publiques</li>
+                    <li>✅ Peut redéfinir les méthodes (override)</li>
+                    <li>✅ Peut ajouter ses propres propriétés/méthodes</li>
+                </ul>
+            </div>
+
+            <h3>👧‍👨 Relations Enfant → Parent</h3>
+            <div class="code-block">
+class Animal {
+    constructor(nom) {
+        this.nom = nom;
+    }
+    
+    dormir() {
+        console.log(`${this.nom} dort...  😴`);
+    }
+}
+
+class Chat extends Animal {
+    constructor(nom, race) {
+        super(nom); // Appel explicite au parent
+        this.race = race;
+    }
+    
+    miauler() {
+        super.dormir(); // Utilise la méthode du parent
+        console.log("Miaou ! 🐱");
+    }
+}
+            </div>
+
+            <h3>🔌 Qu'est-ce qu'une Interface ?</h3>
+            <div class="warning">
+                <p><strong>Note :</strong> JavaScript ne supporte pas nativement les interfaces, mais on peut les simuler ou utiliser TypeScript.</p>
+            </div>
+            
+            <p>Une interface définit un <strong>contrat</strong> - elle spécifie quelles méthodes une classe doit implémenter sans fournir l'implémentation.</p>
+            
+            <div class="code-block">
+// Simulation d'interface en JavaScript
+class IVolable {
+    voler() {
+        throw new Error("La méthode voler() doit être implémentée");
+    }
+    
+    atterrir() {
+        throw new Error("La méthode atterrir() doit être implémentée");
+    }
+}
+
+// Classe qui "implémente" l'interface
+class Oiseau extends IVolable {
+    constructor(espece) {
+        super();
+        this.espece = espece;
+    }
+    
+    voler() {
+        console.log(`🦅 L'${this.espece} vole gracieusement`);
+    }
+    
+    atterrir() {
+        console.log(`🛬 L'${this.espece} atterrit`);
+    }
+}
+
+class Avion extends IVolable {
+    voler() {
+        console.log("✈️ L'avion décolle !");
+    }
+    
+    atterrir() {
+        console.log("🛬 Atterrissage réussi !");
+    }
+}
+            </div>
+
+            <h3>🎯 Intérêt des Interfaces</h3>
+            <ul>
+                <li>📝 <strong>Contrat clair</strong> : Définit ce qu'une classe doit faire</li>
+                <li>🔄 <strong>Polymorphisme</strong> : Plusieurs classes peuvent implémenter la même interface</li>
+                <li>🧹 <strong>Code propre</strong> : Sépare la définition de l'implémentation</li>
+                <li>🛠️ <strong>Maintenance</strong> : Facilite les modifications et tests</li>
+            </ul>
+
+            <h3>🆚 Interface vs Classe Abstraite</h3>
+            <div class="code-block">
+/*
+INTERFACE :
+- Définit SEULEMENT le contrat (quoi faire)
+- Aucune implémentation
+- Une classe peut implémenter plusieurs interfaces
+- Plus flexible
+
+CLASSE ABSTRAITE :
+- Peut contenir du code commun (comment faire)
+- Mélange de méthodes implémentées et abstraites
+- Héritage simple seulement
+- Partage de code entre classes similaires
+*/
+            </div>
+        </section>
+
+        <section id="relations">
+            <h2>🔗 Relations entre Objets (UML)</h2>
+            
+            <h3>🤝 Association</h3>
+            <p>Relation <strong>"utilise"</strong> - Un objet utilise un autre objet sans le posséder.</p>
+            
+            <div class="code-block">
+class Conducteur {
+    constructor(nom, permis) {
+        this.nom = nom;
+        this.permis = permis;
+    }
+    
+    conduire(voiture) {
+        console.log(`${this.nom} conduit la ${voiture.getInfo()}`);
+    }
+}
+
+class VoitureLocation {
+    constructor(modele, immatriculation) {
+        this.modele = modele;
+        this.immatriculation = immatriculation;
+    }
+    
+    getInfo() {
+        return `${this.modele} (${this.immatriculation})`;
+    }
+}
+
+// Association : le conducteur UTILISE la voiture
+const pierre = new Conducteur("Pierre", "B123456");
+const voitureDeLocation = new VoitureLocation("Peugeot 208", "AB-123-CD");
+
+pierre.conduire(voitureDeLocation); // Pierre utilise la voiture
+// Si Pierre disparaît, la voiture existe toujours !
+            </div>
+
+            <h3>🏢 Agrégation</h3>
+            <p>Relation <strong>"a un"</strong> - Un objet contient d'autres objets qui peuvent exister indépendamment.</p>
+            
+            <div class="code-block">
+class Employe {
+    constructor(nom, poste) {
+        this.nom = nom;
+        this.poste = poste;
+    }
+}
+
+class Entreprise {
+    constructor(nom) {
+        this.nom = nom;
+        this.employes = []; // Agrégation : l'entreprise "a" des employés
+    }
+    
+    embaucher(employe) {
+        this.employes.push(employe);
+        console.log(`✅ ${employe.nom} a rejoint ${this.nom}`);
+    }
+    
+    licencier(employe) {
+        const index = this.employes.indexOf(employe);
+        if (index > -1) {
+            this.employes.splice(index, 1);
+            console.log(`❌ ${employe.nom} a quitté ${this.nom}`);
+        }
+    }
+}
+
+const alice = new Employe("Alice", "Développeuse");
+const bob = new Employe("Bob", "Designer");
+const techCorp = new Entreprise("TechCorp");
+
+techCorp.embaucher(alice);
+techCorp.embaucher(bob);
+// Si l'entreprise ferme, Alice et Bob existent toujours !
+            </div>
+
+            <h3>🏗️ Composition</h3>
+            <p>Relation <strong>"est composé de"</strong> - Un objet possède complètement d'autres objets qui ne peuvent pas exister sans lui.</p>
+            
+            <div class="code-block">
+class Chambre {
+    constructor(nom, superficie) {
+        this.nom = nom;
+        this.superficie = superficie;
+    }
+}
+
+class Maison {
+    constructor(adresse) {
+        this.adresse = adresse;
+        // Composition : la maison POSSÈDE des chambres
+        this.chambres = [
+            new Chambre("Salon", 30),
+            new Chambre("Cuisine", 15),
+            new Chambre("Chambre principale", 20)
+        ];
+    }
+    
+    ajouterChambre(nom, superficie) {
+        const nouvelleChambre = new Chambre(nom, superficie);
+        this.chambres.push(nouvelleChambre);
+        return nouvelleChambre;
+    }
+    
+    getSuperficieTotale() {
+        return this.chambres.reduce((total, chambre) => total + chambre.superficie, 0);
+    }
+}
+
+const maMaison = new Maison("123 Rue de la Paix");
+console.log(`Superficie totale: ${maMaison.getSuperficieTotale()} m²`);
+
+// Si la maison est détruite, toutes ses chambres disparaissent aussi !
+// Une chambre ne peut pas exister sans sa maison
+            </div>
+
+            <div class="important">
+                <p><strong>Résumé des relations :</strong></p>
+                <ul>
+                    <li>🤝 <strong>Association</strong> : "utilise" - indépendance complète</li>
+                    <li>🏢 <strong>Agrégation</strong> : "a un" - les parties peuvent survivre au tout</li>
+                    <li>🏗️ <strong>Composition</strong> : "est composé de" - les parties meurent avec le tout</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="polymorphisme">
+            <h2>🎭 Polymorphisme</h2>
+            
+            <h3>🎯 À quoi sert le Polymorphisme ?</h3>
+            <p>Le polymorphisme permet à <span class="highlight">différents objets</span> de répondre à la <span class="highlight">même interface</span> de manière différente. "Poly" = plusieurs, "morphe" = formes.</p>
+            
+            <div class="code-block">
+// Interface commune via classe de base

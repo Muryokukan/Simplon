@@ -312,5 +312,190 @@ exemplePortee();
       }
     </script>
   </div>
+
+  <div class="concept">
+    <h2>Héritage</h2>
+    <h3>Qu'est-ce que l'héritage ?</h3>
+    <p>L'héritage est un mécanisme qui permet à une classe de hériter des propriétés et des méthodes d'une autre classe.</p>
+    <h3>À quoi sert l'héritage ?</h3>
+    <p>L'héritage sert à créer une hiérarchie de classes où les classes filles héritent des propriétés et des méthodes des classes parents.</p>
+    <h3>Comment écrit-on de l'héritage ?</h3>
+    <pre><code>
+  class Animal {
+    constructor(nom) {
+      this.nom = nom;
+    }
+  
+    manger() {
+      console.log(`${this.nom} mange.`);
+    }
+  }
+  
+  class Chien extends Animal {
+    constructor(nom, race) {
+      super(nom);
+      this.race = race;
+    }
+  
+    aboyer() {
+      console.log(`${this.nom} aboie.`);
+    }
+  }
+      </code></pre>
+    <h3>Dans quel cas utilise-t-on l'héritage ?</h3>
+    <p>L'héritage est utilisé lorsque l'on veut créer une classe qui est une spécialisation d'une autre classe.</p>
+    <h3>Relations parents -> enfants et enfants -> parents</h3>
+    <p>La classe parent est la classe qui est héritée, tandis que la classe enfant est la classe qui hérite.</p>
+    <p>La classe enfant a accès aux propriétés et méthodes de la classe parent, mais la classe parent n'a pas accès aux propriétés et méthodes de la classe enfant.</p>
+    <button onclick="exempleHeritage()">Exécuter</button>
+    <script>
+      function exempleHeritage() {
+        class Animal {
+          constructor(nom) {
+            this.nom = nom;
+          }
+  
+          manger() {
+            alert(`${this.nom} mange.`);
+          }
+        }
+  
+        class Chien extends Animal {
+          constructor(nom, race) {
+            super(nom);
+            this.race = race;
+          }
+  
+          aboyer() {
+            alert(`${this.nom} aboie.`);
+          }
+        }
+  
+        const chien = new Chien('Fido', 'Labrador');
+        chien.manger();
+        chien.aboyer();
+      }
+    </script>
+  </div>
+  
+  <div class="concept">
+    <h2>Interfaces</h2>
+    <h3>Qu'est-ce qu'une interface ?</h3>
+    <p>Une interface est un contrat qui définit les méthodes que les classes qui l'implémentent doivent fournir.</p>
+    <h3>Intérêt des interfaces</h3>
+    <p>Les interfaces permettent de définir un contrat commun pour les classes qui l'implémentent, ce qui facilite la communication entre les objets.</p>
+    <h3>Différence avec une classe abstraite</h3>
+    <p>Une classe abstraite peut contenir des méthodes concrètes et des méthodes abstraites, tandis qu'une interface ne contient que des méthodes abstraites.</p>
+    <pre><code>
+  interface Imprimable {
+    imprimer();
+  }
+  
+  class Document implements Imprimable {
+    imprimer() {
+      console.log('Impression...');
+    }
+  }
+      </code></pre>
+    <button onclick="exempleInterface()">Exécuter</button>
+    <script>
+      function exempleInterface() {
+        class Imprimable {
+          imprimer() {
+            throw new Error('Méthode non implémentée');
+          }
+        }
+  
+        class Document extends Imprimable {
+          imprimer() {
+            alert('Impression...');
+          }
+        }
+  
+        const document = new Document();
+        document.imprimer();
+      }
+    </script>
+  </div>
+  
+  <div class="concept">
+    <h2>Relations entre les objets (UML)</h2>
+    <h3>Association</h3>
+    <p>L'association est une relation entre deux classes qui ne sont pas liées par l'héritage.</p>
+    <h3>Aggrégation</h3>
+    <p>L'aggrégation est une relation entre deux classes où l'une des classes est un conteneur pour l'autre.</p>
+    <h3>Composition</h3>
+    <p>La composition est une relation entre deux classes où l'une des classes est composée de l'autre.</p>
+    <pre><code>
+  class Voiture {
+    #moteur;
+  
+    constructor() {
+      this.#moteur = new Moteur();
+    }
+  }
+  
+  class Moteur {
+    // ...
+  }
+      </code></pre>
+  </div>
+  
+  <div class="concept">
+    <h2>Polymorphisme</h2>
+    <h3>Qu'est-ce que le polymorphisme ?</h3>
+    <p>Le polymorphisme est la capacité d'un objet à prendre plusieurs formes.</p>
+    <h3>À quoi sert le polymorphisme ?</h3>
+    <p>Le polymorphisme permet de traiter des objets de différentes classes de manière uniforme.</p>
+    <h3>Utilité du polymorphisme</h3>
+    <p>Le polymorphisme est utile pour créer des programmes plus flexibles et plus faciles à maintenir.</p>
+    <pre><code>
+  class Forme {
+    afficher() {
+      // ...
+    }
+  }
+  
+  class Cercle extends Forme {
+    afficher() {
+      console.log('Affichage d\'un cercle');
+    }
+  }
+  
+  class Rectangle extends Forme {
+    afficher() {
+      console.log('Affichage d\'un rectangle');
+    }
+  }
+  
+  const formes = [new Cercle(), new Rectangle()];
+  formes.forEach((forme) => forme.afficher());
+      </code></pre>
+    <button onclick="exemplePolymorphisme()">Exécuter</button>
+    <script>
+      function exemplePolymorphisme() {
+        class Forme {
+          afficher() {
+            alert('Affichage d\'une forme');
+          }
+        }
+  
+        class Cercle extends Forme {
+          afficher() {
+            alert('Affichage d\'un cercle');
+          }
+        }
+  
+        class Rectangle extends Forme {
+          afficher() {
+            alert('Affichage d\'un rectangle');
+          }
+        }
+  
+        const formes = [new Cercle(), new Rectangle()];
+        formes.forEach((forme) => forme.afficher());
+      }
+    </script>
+  </div>
 </body>
 </html>

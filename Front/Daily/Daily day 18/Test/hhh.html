@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices JavaScript POO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .exercise-card {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .exercise-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+        
+        .exercise-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .exercise-title {
+            color: #2c3e50;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .difficulty {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: auto;
+        }
+        
+        .easy { background: #d4edda; color: #155724; }
+        .medium { background: #fff3cd; color: #856404; }
+        .hard { background: #f8d7da; color: #721c24; }
+        
+        .exercise-body {
+            padding: 20px;
+        }
+        
+        .exercise-description {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .code-starter {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .hint {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        .objectives {
+            background: #f1f8e9;
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .objectives h4 {
+            color: #2e7d32;
+            margin-bottom: 10px;
+        }
+        
+        .objectives ul {
+            margin-left: 20px;
+            color: #388e3c;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+        
+        .btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .solution {
+            display: none;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 2em;
+            margin: 30px 0 20px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .project-card {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .project-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 Exercices JavaScript POO</h1>
+            <p>Des exercices pratiques pour maîtriser la Programmation Orientée Objet</p>
+        </div>
+        
+        <div class="content">
+            <h2 class="section-title">🚀 Exercices Débutant</h2>
+            
+            <div class="exercise-grid">
+                <!-- Exercice 1 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3 class="exercise-title">
+                            🏦 Compte Bancaire
+                            <span class="difficulty easy">Facile</span>
+                        </h3>
+                    </div>
+                    <div class="exercise-body">
+                        <div class="exercise-description">
+                            Créez une classe <code>CompteBancaire</code> pour gérer un compte simple.
+                        </div>
+                        
+                        <div class="objectives">
+                            <h4>Objectifs :</h4>
+                            <ul>
+                                <li>Propriétés : titulaire, solde, numeroCompte</li>
+                                <li>Méthodes : deposer(), retirer(), afficherSolde()</li>
+                                <li>Validation : pas de retrait si solde insuffisant</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="code-starter">
+class CompteBancaire {
+    constructor(titulaire, soldeInitial = 0) {
+        // À compléter
+    }
+    
+    deposer(montant) {
+        // À compléter
+    }
+    
+    retirer(montant) {
+        // À compléter
+    }
+    
+    afficherSolde() {
+        // À compléter
+    }
+}
+
+// Test
+const compte = new CompteBancaire("Alice", 1000);
+compte.deposer(500);
+console.log(compte.afficherSolde()); // 1500
+                        </div>
+                        
+                        <div class="hint">
+                            💡 <strong>Indice :</strong> Utilisez <code>Math.random()</code> pour générer un numéro de compte unique.
+                        </div>
+                        
+                        <button class="btn" onclick="toggleSolution('solution1')">Voir la solution</button>
+                        
+                        <div id="solution1" class="solution">
+                            <h4>Solution :</h4>
+                            <div class="code-starter">
+class CompteBancaire {
+    constructor(titulaire, soldeInitial = 0) {
+        this.titulaire = titulaire;
+        this.solde = soldeInitial;
+        this.numeroCompte = this.genererNumeroCompte();
+    }
+    
+    genererNumeroCompte() {
+        return 'FR' + Math.random().toString().substring(2, 12);
+    }
+    
+    deposer(montant) {
+        if (montant > 0) {
+            this.solde += montant;
+            console.log(`💰 ${montant}€ déposés. Nouveau solde: ${this.solde}€`);
+        } else {
+            console.log("❌ Montant invalide");
+        }
+    }
+    
+    retirer(montant) {
+        if (montant <= this.solde && montant > 0) {
+            this.solde -= montant;
+            console.log(`💸 ${montant}€ retirés. Nouveau solde: ${this.solde}€`);
+        } else {
+            console.log("❌ Solde insuffisant ou montant invalide");
+        }
+    }
+    
+    afficherSolde() {
+        return `Compte de ${this.titulaire}: ${this.solde}€`;
+    }
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercice 2 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3 class="exercise-title">
+                            📱 Smartphone
+                            <span class="difficulty easy">Facile</span>
+                        </h3>
+                    </div>
+                    <div class="exercise-body">
+                        <div class="exercise-description">
+                            Créez une classe <code>Smartphone</code> avec gestion de la batterie.
+                        </div>
+                        
+                        <div class="objectives">
+                            <h4>Objectifs :</h4>
+                            <ul>
+                                <li>Propriétés : marque, modele, batterie (0-100)</li>
+                                <li>Méthodes : allumer(), eteindre(), utiliser(), charger()</li>
+                                <li>Getters/Setters pour la batterie avec validation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="code-starter">
+class Smartphone {
+    constructor(marque, modele) {
+        // À compléter
+    }
+    
+    get batterie() {
+        // À compléter
+    }
+    
+    set batterie(niveau) {
+        // Valider entre 0 et 100
+    }
+    
+    // À compléter les autres méthodes
+}
+                        </div>
+                        
+                        <button class="btn" onclick="toggleSolution('solution2')">Voir la solution</button>
+                        
+                        <div id="solution2" class="solution">
+                            <h4>Solution :</h4>
+                            <div class="code-starter">
+class Smartphone {
+    constructor(marque, modele) {
+        this.marque = marque;
+        this.modele = modele;
+        this._batterie = 100;
+        this.allume = false;
+    }
+    
+    get batterie() {
+        return this._batterie;
+    }
+    
+    set batterie(niveau) {
+        if (niveau >= 0 && niveau <= 100) {
+            this._batterie = niveau;
+        } else {
+            console.log("❌ Niveau de batterie invalide");
+        }
+    }
+    
+    allumer() {
+        if (this._batterie > 0) {
+            this.allume = true;
+            console.log("📱 Smartphone allumé");
+        } else {
+            console.log("🔋 Batterie vide !");
+        }
+    }
+    
+    eteindre() {
+        this.allume = false;
+        console.log("📴 Smartphone éteint");
+    }
+    
+    utiliser(minutes) {
+        if (this.allume) {
+            const consommation = minutes * 2;
+            this._batterie = Math.max(0, this._batterie - consommation);
+            console.log(`📱 Utilisé ${minutes}min. Batterie: ${this._batterie}%`);
+        } else {
+            console.log("❌ Smartphone éteint");
+        }
+    }
+    
+    charger() {
+        this._batterie = 100;
+        console.log("🔌 Smartphone chargé à 100%");
+    }
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercice 3 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3 class="exercise-title">
+                            🐕 Animal Virtuel
+                            <span class="difficulty easy">Facile</span>
+                        </h3>
+                    </div>
+                    <div class="exercise-body">
+                        <div class="exercise-description">
+                            Créez un Tamagotchi simple avec des besoins vitaux.
+                        </div>
+                        
+                        <div class="objectives">
+                            <h4>Objectifs :</h4>
+                            <ul>
+                                <li>Propriétés : nom, faim (0-100), bonheur (0-100), sante (0-100)</li>
+                                <li>Méthodes : nourrir(), jouer(), dormir(), verifierEtat()</li>
+                                <li>Les stats diminuent avec le temps</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="hint">
+                            💡 <strong>Défi bonus :</strong> Ajoutez une méthode qui fait évoluer l'animal automatiquement toutes les secondes !
+                        </div>
+                        
+                        <button class="btn" onclick="toggleSolution('solution3')">Voir la solution</button>
+                        
+                        <div id="solution3" class="solution">
+                            <h4>Solution :</h4>
+                            <div class="code-starter">
+class AnimalVirtuel {
+    constructor(nom) {
+        this.nom = nom;
+        this.faim = 50;
+        this.bonheur = 50;
+        this.sante = 100;
+        this.age = 0;
+    }
+    
+    nourrir() {
+        this.faim = Math.min(100, this.faim + 30);
+        this.sante = Math.min(100, this.sante + 5);
+        console.log(`🍖 ${this.nom} a mangé ! Faim: ${this.faim}`);
+    }
+    
+    jouer() {
+        if (this.sante > 20) {
+            this.bonheur = Math.min(100, this.bonheur + 25);
+            this.faim = Math.max(0, this.faim - 10);
+            console.log(`🎾 ${this.nom} s'amuse ! Bonheur: ${this.bonheur}`);
+        } else {
+            console.log(`😷 ${this.nom} est trop fatigué pour jouer`);
+        }
+    }
+    
+    dormir() {
+        this.sante = Math.min(100, this.sante + 20);
+        this.faim = Math.max(0, this.faim - 5);
+        console.log(`😴 ${this.nom} a bien dormi ! Santé: ${this.sante}`);
+    }
+    
+    verifierEtat() {
+        console.log(`📊 État de ${this.nom}:`);
+        console.log(`   Faim: ${this.faim}/100`);
+        console.log(`   Bonheur: ${this.bonheur}/100`);
+        console.log(`   Santé: ${this.sante}/100`);
+        console.log(`   Âge: ${this.age} jours`);
+        
+        if (this.faim < 20) console.log("🍖 J'ai faim !");
+        if (this.bonheur < 20) console.log("😢 Je m'ennuie...");
+        if (this.sante < 20) console.log("🤒 Je ne me sens pas bien...");
+    }
+    
+    vieillir() {
+        this.age++;
+        this.faim = Math.max(0, this.faim - 5);
+        this.bonheur = Math.max(0, this.bonheur - 3);
+        if (this.faim < 10) this.sante = Math.max(0, this.sante - 10);
+    }
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercice 4 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3 class="exercise-title">
+                            📚 Bibliothèque
+                            <span class="difficulty medium">Moyen</span>
+                        </h3>
+                    </div>
+                    <div class="exercise-body">
+                        <div class="exercise-description">
+                            Créez un système de gestion de bibliothèque avec livres et emprunts.
+                        </div>
+                        
+                        <div class="objectives">
+                            <h4>Objectifs :</h4>
+                            <ul>
+                                <li>Classes : Livre, Bibliotheque</li>
+                                <li>Gestion des emprunts/retours</li>
+                                <li>Recherche par titre/auteur</li>
+                                <li>Livres disponibles/empruntés</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="code-starter">
+class Livre {
+    constructor(titre, auteur, isbn) {
+        // À compléter
+    }
+}
+
+class Bibliotheque {
+    constructor(nom) {
+        // À compléter
+    }
+    
+    ajouterLivre(livre) {
+        // À compléter
+    }
+    
+    emprunterLivre(isbn) {
+        // À compléter
+    }
+    
+    retournerLivre(isbn) {
+        // À compléter
+    }
+    
+    rechercherLivre(terme) {
+        // À compléter
+    }
+}
+                        </div>
+                        
+                        <button class="btn" onclick="toggleSolution('solution4')">Voir la solution</button>
+                        
+                        <div id="solution4" class="solution">
+                            <h4>Solution :</h4>
+                            <div class="code-starter">
+class Livre {
+    constructor(titre, auteur, isbn) {
+        this.titre = titre;
+        this.auteur = auteur;
+        this.isbn = isbn;
+        this.emprunte = false;
+        this.dateEmprunt = null;
+    }
+    
+    toString() {
+        return `"${this.titre}" par ${this.auteur}`;
+    }
+}
+
+class Bibliotheque {
+    constructor(nom) {
+        this.nom = nom;
+        this.livres = [];
+    }
+    
+    ajouterLivre(livre) {
+        this.livres.push(livre);
+        console.log(`📚 Livre ajouté: ${livre.toString()}`);
+    }
+    
+    emprunterLivre(isbn) {
+        const livre = this.livres.find(l => l.isbn === isbn);
+        
+        if (!livre) {
+            console.log("❌ Livre introuvable");
+            return false;
+        }
+        
+        if (livre.emprunte) {
+            console.log("❌ Livre déjà emprunté");
+            return false;
+        }
+        
+        livre.emprunte = true;
+        livre.dateEmprunt = new Date();
+        console.log(`✅ Livre emprunté: ${livre.toString()}`);
+        return true;
+    }
+    
+    retournerLivre(isbn) {
+        const livre = this.livres.find(l => l.isbn === isbn);
+        
+        if (!livre || !livre.emprunte) {
+            console.log("❌ Livre non trouvé ou déjà retourné");
+            return false;
+        }
+        
+        livre.emprunte = false;
+        livre.dateEmprunt = null;
+        console.log(`📖 Livre retourné: ${livre.toString()}`);
+        return true;
+    }
+    
+    rechercherLivre(terme) {
+        const resultats = this.livres.filter(livre => 
+            livre.titre.toLowerCase().includes(terme.toLowerCase()) ||
+            livre.auteur.toLowerCase().includes(terme.toLowerCase())
+        );
+        
+        console.log(`🔍 ${resultats.length} livre(s) trouvé(s) pour "${terme}"`);
+        resultats.forEach(livre => {
+            const statut = livre.emprunte ? "📕 Emprunté" : "📗 Disponible";
+            console.log(`  ${statut} - ${livre.toString()}`);
+        });
+        
+        return resultats;
+    }
+    
+    afficherStatistiques() {
+        const total = this.livres.length;
+        const empruntes = this.livres.filter(l => l.emprunte).length;
+        const disponibles = total - empruntes;
+        
+        console.log(`📊 Statistiques de ${this.nom}:`);
+        console.log(`  Total: ${total} livres`);
+        console.log(`  Disponibles: ${disponibles}`);
+        console.log(`  Empruntés: ${empruntes}`);
+    }
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">🔥 Exercices Intermédiaires</h2>
+            
+            <div class="exercise-grid">
+                <!-- Exercice 5 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3 class="exercise-title">
+                            🚗 Garage Automobile
+                            <span class="difficulty medium">Moyen</span>
+                        </h3>
+                    </div>
+                    <div class="exercise-body">
+                        <div class="exercise-description">
+                            Créez un système avec héritage : Vehicule → Voiture/Moto → différents modèles.
+                        </div>
+                        
+                        <div class="objectives">
+                            <h4>Objectifs :</h4>
+                            <ul>
+                                <li>Classe abstraite Vehicule</li>
+                                <li>Classes Voiture, Moto héritant de Vehicule</li>
+                                <li>Polymorphisme : chaque véhicule démarre différemment</li>
+                                <li>Classe Garage pour gérer les véhicules</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn" onclick="toggleSolution('solution5')">Voir la solution</button>
+                        
+                        <div id="solution5" class="solution">
+                            <h4>Solution :</h4>
+                            <div class="code-starter">
+// Classe abstraite
+class Vehicule {
+    constructor(marque, modele, annee) {
+        if (this.constructor === Vehicule) {
+            throw new Error("Vehicule est une classe abstraite");
+        }
+        this.marque = marque;
+        this.modele = modele;
+        this.annee = annee;
+        this.vitesse = 0;
+    }
+    
+    // Méthode abstraite
+    demarrer() {
+        throw new Error("demarrer() doit être implémentée");
+    }
+    
+    accelerer(increment = 10) {
+        this.vitesse += increment;
+        console.log(`🚀 Vitesse: ${this.vitesse} km/h`);
+    }
+    
+    freiner() {
+        this.vitesse = Math.max(0, this.vitesse - 20);
+        console.log(`🛑 Vitesse: ${this.vitesse} km/h`);
+    }
+}
+
+class Voiture extends Vehicule {
+    constructor(marque, modele, annee, nombrePortes) {
+        super(marque, modele, annee);
+        this.nombrePortes = nombrePortes;
+    }
+    
+    demarrer() {
+        console.log(`🚗 ${this.marque} ${this.modele} démarre en douceur`);
+    }
+    
+    accelerer(increment = 15) {
+        super.accelerer(increment);
+    }
+}
+
+class Moto extends Vehicule {
+    constructor(marque, modele, annee, cylindree) {
+        super(marque, modele, annee);
+        this.cylindree = cylindree;
+    }
+    
+    demarrer() {
+        console.log(`🏍️ ${this.marque} ${this.modele} rugit au démarrage ! VROOOOM !`);
+    }
+    
+    accelerer(increment = 25) {
+        super.accelerer(increment);
+        console.log("💨 Accélération fulgurante !");
+    }
+}
+
+class Garage {
+    constructor(nom) {
+        this.nom = nom;
+        this.vehicules = [];
+    }
+    
+    ajouterVehicule(vehicule) {
+        this.vehicules.push(vehicule);
+        console.log(`✅ Véhicule ajouté au garage ${this.nom}`);
+    }
+    
+    demarrerTous() {
+        console.log(`🔧 Démarrage de tous les véhicules du garage ${this.nom}:`);
+        this.vehicules.forEach(vehicule => vehicule.demarrer());
+    }
+    
+    afficherInventaire() {
+        console.log(`📋 Inventaire du garage ${this.nom}:`);
+        this.vehicules.forEach((vehicule, index) => {
+            console.log(`  ${index + 1}. ${vehicule.marque} ${vehicule.modele} (${vehicule.annee})`);
+        });
+    }
+}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Exercice 6 -->
+                <div class="exercise-card">
+                    <div class="exercise-header">
+                        <h3 class="exercise-title">
+                            🏪 Système E-commerce
+                            <span class="difficulty medium">Moyen</span>
+                        </h3>
+                    </div>
+                    <div class="exercise-body">
+                        <div class="exercise-description">
+                            Un mini e-commerce avec produits, panier et gestion des stocks.
+                        </div>
+                        
+                        <div class="objectives">
+                            <h4>Objectifs :</h4>
+                            <ul>
+                                <li>Encapsulation : propriétés privées (#)</li>
+                                <li>Classes : Produit, Panier, Boutique</li>
+                                <li>Gestion des stocks et promotions</li>
+                                <li>Calcul automatique des totaux</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn" onclick="toggleSolution('solution6')">Voir la solution</button>
+                        
+                        <div id="solution6" class="solution">
+                            <h4>Solution :</h4>
+                            <div class="code-starter">
+class Produit {
+    #prixUnitaire;
+    #stock;
+    
+    constructor(nom, prix, stock, description = "") {
+        this.nom = nom;
+        this.#prixUnitaire = prix;
+        this.#stock = stock;
+        this.description = description;
+        this.promotion = 0; // % de réduction
+    }
+    
+    get prix() {
+        return this.#prixUnitaire * (1 - this.promotion / 100);
+    }
+    
+    get stock() {
+        return this.#stock;
+    }
+    
+    retirerStock(quantite) {
+        if (quantite <= this.#stock) {
+            this.#stock -= quantite;
+            return true;
+        }
+        return false;
+    }
+    
+    ajouterStock(quantite) {
+        this.#stock += quantite;
+    }
+    
+    appliquerPromotion(pourcentage) {
+        this.promotion = Math.max(0, Math.min(100, pourcentage));
+    }
+}
+
+class Panier {
+    constructor() {
+        this.articles = [];
+    }
+    
+    ajouterArticle(produit, quantite = 1) {
+        if (!produit.retirerStock(quantite)) {
+            console.log(`❌ Stock insuffisant pour ${produit.nom}`);
+            return false;
+        }
+        
+        const articleExistant = this.articles.find(a => a.produit === produit);
+        
+        if (articleExistant) {
+            articleExistant.quantite += quantite;
+        } else {
+            this.articles.push({ produit, quantite });
+        }
+        
+        console.log(`✅ ${quantite} x ${produit.nom} ajouté(s) au panier`);
+        return true;
+    }
+    
+    retirerArticle(produit, quantite = 1) {
+        const article = this.articles.find(a => a.produit === produit);
+        
+        if (article) {
+            const quantiteRetiree = Math.min(quantite, article.quantite);
+            article.quantite -= quantiteRetiree;
+            
+            // Remettre en stock
+            produit.ajouterStock(quantiteRetiree);
+            
+            if (article.quantite === 0) {
+                this.articles = this.articles.filter(a => a !== article);
+            }
+            
+            console.log(`🗑️ ${quantiteRetiree} x ${produit.nom} retiré(s) du panier`);
+        }
+    }
+    
+    calculerTotal() {
+        return this.articles.reduce((total, article) => {
+            return total + (article.produit.prix * article.quantite);
+        }, 0);
+    }
+    
+    afficherPanier() {
+        console.log("🛒 Contenu du panier:");
+        this.articles.forEach(article => {
+            const sousTotal = article.produit.prix * article.quant
