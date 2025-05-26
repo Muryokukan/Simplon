@@ -79,18 +79,48 @@
 
 // --------------------------------------------------
 
+class Item {
+    constructor(name, price, type) {
+        // Properties:
+        // - name (string)
+        this.name = name
+        // - price (number) 
+        this.price = price; 
+        // - type (string: "weapon", "potion", "armor")
+        this.type = type;
+    }
+    
+    use(player) {
+        if (this.type === "weapon") {
+            player.damageBonus += 10
+            console.log(`${player.name} has equipped a sword ! Damage increase +10`)
+        } else if (this.type === "potion") {
+            player.health = Math.min(player.health + 30, 100); // Cap to 100 max
+            console.log(`${player.name} healed for 30 hp ! (cannot bypass 100 threshold)`)
+        } else if (this.type === "armor") {
+            player.health += 20
+            console.log(`${player.name} has equipped an armor ! Health + 20`)
+        }
+    }
+}
+
+
 class Shop {
-    constructor(name , price , type) {
+    constructor() {
         // Property: items (array of Item objects)
-        
+        this.item = [];
     }
     
     addItem(item) {
         // Add item to shop inventory
+        this.items.push(item); 
     }
     
     displayItems() {
         // Show all available items with prices
+        this.items.forEach((items, index) => {
+            console.log(`${index + 1}. ${items.name} - ${items.price} gold (${item.type})`);
+        });
     }
     
     sell(itemName, player) {
