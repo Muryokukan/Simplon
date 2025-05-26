@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POO en JavaScript</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding-left: 15vw;
+      padding-right: 15vw;
+    }
+    h1 {
+      text-align: center;
+    }
+    .concept {
+      margin-bottom: 20px;
+      padding: 25px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .concept h2 {
+      margin-top: 0;
+    }
+    pre {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+    code {
+      font-family: monospace;
+    }
+    button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+<body>
+  <h1>POO en JavaScript</h1>
+  <div class="concept">
+    <h2>Qu'est-ce que la POO ?</h2>
+    <p>La POO, ou Programmation Orientée Objet, est un moyen de programmer qui consiste à créer des "objets" qui ont des propriétés et des comportements.</p>
+    <p>C'est comme si vous créiez des personnages dans un jeu vidéo, et que chaque personnage avait ses propres caractéristiques et actions.</p>
+  </div>
+
+  <div class="concept">
+    <h2>Classes et Instances</h2>
+    <p>Une classe est un modèle pour créer des objets.</p>
+    <p>Par exemple, si vous voulez créer des voitures, vous pouvez créer une classe "Voiture" qui décrit à quoi ressemble une voiture et comment elle se comporte.</p>
+    <pre><code>
+class Voiture {
+  constructor(marque, modele, annee) {
+    this.marque = marque;
+    this.modele = modele;
+    this.annee = annee;
+  }
+
+  rouler() {
+    console.log(`La ${this.marque} ${this.modele} roule !`);
+  }
+}
+    </code></pre>
+    <p>Ensuite, vous pouvez créer des instances de la classe "Voiture" pour créer des voitures spécifiques.</p>
+    <pre><code>
+const maVoiture = new Voiture('Toyota', 'Corolla', 2015);
+maVoiture.rouler();
+    </code></pre>
+    <button onclick="exempleClasse()">Exécuter</button>
+    <script>
+      function exempleClasse() {
+        class Voiture {
+          constructor(marque, modele, annee) {
+            this.marque = marque;
+            this.modele = modele;
+            this.annee = annee;
+          }
+
+          rouler() {
+            alert(`La ${this.marque} ${this.modele} roule !`);
+          }
+        }
+
+        const maVoiture = new Voiture('Toyota', 'Corolla', 2015);
+        maVoiture.rouler();
+      }
+    </script>
+  </div>
+
+  <div class="concept">
+    <h2>Abstraction</h2>
+    <p>L'abstraction consiste à cacher les détails d'implémentation d'un objet et à ne montrer que les informations nécessaires à son utilisation.</p>
+    <p>Par exemple, si vous avez une voiture, vous n'avez pas besoin de savoir comment fonctionne le moteur, vous appuyez simplement sur le bouton de démarrage.</p>
+    <pre><code>
+class Voiture {
+  #moteur;
+
+  constructor() {
+    this.#moteur = new Moteur();
+  }
+
+  demarrer() {
+    this.#moteur.demarrer();
+  }
+}
+    </code></pre>
+    <button onclick="exempleAbstraction()">Exécuter</button>
+    <script>
+      function exempleAbstraction() {
+        class Voiture {
+          #moteur;
+
+          constructor() {
+            this.#moteur = { demarrer: () => alert('Le moteur démarre !') };
+          }
+
+          demarrer() {
+            this.#moteur.demarrer();
+          }
+        }
+
+        const maVoiture = new Voiture();
+        maVoiture.demarrer();
+      }
+    </script>
+  </div>
+
+  <div class="concept">
+    <h2>Classes Abstraites et Concrètes</h2>
+    <p>Une classe abstraite est une classe qui ne peut pas être instanciée directement et qui est destinée à être héritée par d'autres classes.</p>
+    <p>Une classe concrète est une classe qui peut être instanciée directement et qui implémente toutes les méthodes nécessaires.</p>
+    <h3>Classe Abstraite</h3>
+    <pre><code>
+  abstract class Forme {
+    abstract calculerSurface();
+  
+    afficherSurface() {
+      console.log(`La surface est de ${this.calculerSurface()}`);
+    }
+  }
+      </code></pre>
+    <p>La classe `Forme` est abstraite car elle contient une méthode abstraite `calculerSurface()` qui doit être implémentée par les classes qui l'héritent.</p>
+    <h3>Classe Concrète</h3>
+    <pre><code>
+  class Cercle extends Forme {
+    #rayon;
+  
+    constructor(rayon) {
+      super();
+      this.#rayon = rayon;
+    }
+  
+    calculerSurface() {
+      return Math.PI * this.#rayon ** 2;
+    }
+  }
+      </code></pre>
+    <p>La classe `Cercle` est concrète car elle implémente la méthode `calculerSurface()` et peut être instanciée directement.</p>
+    <button onclick="exempleClasseAbstraite()">Exécuter</button>
+    <script>
+      function exempleClasseAbstraite() {
+        class Forme {
+          calculerSurface() {
+            throw new Error('Méthode non implémentée');
+          }
+  
+          afficherSurface() {
+            alert(`La surface est de ${this.calculerSurface()}`);
+          }
+        }
+  
+        class Cercle extends Forme {
+          #rayon;
+  
+          constructor(rayon) {
+            super();
+            this.#rayon = rayon;
+          }
+  
+          calculerSurface() {
+            return Math.PI * this.#rayon ** 2;
+          }
+        }
+  
+        const cercle = new Cercle(5);
+        cercle.afficherSurface();
+      }
+    </script>
+  </div>
+
+  <div class="concept">
+    <h2>Encapsulation</h2>
+    <p>L'encapsulation consiste à regrouper les données et les méthodes qui les manipulent dans un seul objet.</p>
+    <p>Par exemple, si vous avez un compte bancaire, vous pouvez créer un objet "CompteBancaire" qui contient les données relatives au compte et les méthodes pour les manipuler.</p>
+    <pre><code>
+class CompteBancaire {
+  #solde;
+
+  constructor(soldeInitial) {
+    this.#solde = soldeInitial;
+  }
+
+  deposer(montant) {
+    this.#solde += montant;
+  }
+
+  getSolde() {
+    return this.#solde;
+  }
+}
+    </code></pre>
+    <button onclick="exempleEncapsulation()">Exécuter</button>
+    <script>
+      function exempleEncapsulation() {
+        class CompteBancaire {
+          #solde;
+
+          constructor(soldeInitial) {
+            this.#solde = soldeInitial;
+          }
+
+          deposer(montant) {
+            this.#solde += montant;
+          }
+
+          getSolde() {
+            return this.#solde;
+          }
+        }
+
+        const monCompte = new CompteBancaire(1000);
+        monCompte.deposer(500);
+        alert(`Solde : ${monCompte.getSolde()}`);
+      }
+    </script>
+  </div>
+
+  <div class="concept">
+    <h2>Getters et Setters</h2>
+    <p>Les getters et les setters sont des méthodes spéciales qui permettent de lire et de modifier les attributs d'un objet.</p>
+    <p>Par exemple, si vous avez un objet "Personne" avec un attribut "nom", vous pouvez créer un getter "getNom()" pour lire le nom et un setter "setNom(nouveauNom)" pour modifier le nom.</p>
+    <pre><code>
+class Personne {
+  #nom;
+
+  constructor(nom) {
+    this.#nom = nom;
+  }
+
+  get nom() {
+    return this.#nom;
+  }
+
+  set nom(nouveauNom) {
+    this.#nom = nouveauNom;
+  }
+}
+    </code></pre>
+    <button onclick="exempleGettersSetters()">Exécuter</button>
+    <script>
+      function exempleGettersSetters() {
+        class Personne {
+          #nom;
+
+          constructor(nom) {
+            this.#nom = nom;
+          }
+
+          get nom() {
+            return this.#nom;
+          }
+
+          set nom(nouveauNom) {
+            this.#nom = nouveauNom;
+          }
+        }
+
+        const personne = new Personne('Jean');
+        alert(personne.nom);
+        personne.nom = 'Pierre';
+        alert(personne.nom);
+      }
+    </script>
+  </div>
+
+  <div class="concept">
+    <h2>Portée (Scope)</h2>
+    <p>La portée fait référence à la région du code où une variable ou un identifiant est défini et accessible.</p>
+    <p>Par exemple, si vous déclarez une variable à l'intérieur d'une fonction, elle n'est accessible que dans cette fonction.</p>
+    <pre><code>
+function exemplePortee() {
+  let variableLocale = 'Je suis locale';
+  console.log(variableLocale);
+}
+
+exemplePortee();
+// console.log(variableLocale); // Erreur
+    </code></pre>
+    <button onclick="exemplePortee()">Exécuter</button>
+    <script>
+      function exemplePortee() {
+        let variableLocale = 'Je suis locale';
+        alert(variableLocale);
+      }
+    </script>
+  </div>
+</body>
+</html>

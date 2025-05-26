@@ -259,6 +259,6 @@
 //   };
   
 
-function sumTwoSmallestNumbers(numbers) {  
-    // Code here
-  }
+// function sumTwoSmallestNumbers(numbers) {  
+    
+//   }
