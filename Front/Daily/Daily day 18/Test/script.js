@@ -272,14 +272,12 @@ class Garage {
         } else {
             this.vehicles.push(vehicle);
         }
-        // TODO: Add vehicle to array
-
-        // TODO: Display success/failure message
         console.log(`${vehicle.brand} ${vehicle.model} is added to the garage !`)
     }
     
     removeVehicle(index) {
         // TODO: Check if index exists
+        
         // TODO: Remove vehicle from array
         // TODO: Display message
     }
