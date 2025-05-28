@@ -5,13 +5,22 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon app.js"
+    "start": "ts-node exercise1.ts",
+    "build": "tsc exercise1.ts",
+    "dev": "nodemon --exec ts-node exercise1.ts",
+    "dev:tsc": "tsc --watch exercise1.ts",
+    "lint": "eslint *.ts",
+    "format": "prettier --write *.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^9.27.0",
-    "nodemon": "^3.1.10",
-    "prettier": "^3.5.3"
+    "nodemon": "^3.1.10", 
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "ts-node": "^10.9.1",
+    "@types/node": "^22.0.0"
   }
 }
+
