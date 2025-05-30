@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node exercise1.ts",
-    "build": "tsc exercise1.ts",
-    "dev": "nodemon --exec ts-node exercise1.ts",
-    "dev:tsc": "tsc --watch exercise1.ts",
+    "start": "ts-node src/exercise1.ts",
+    "build": "tsc src/exercise1.ts",
+    "dev": "nodemon --exec ts-node src/exercise1.ts",
+    "dev:tsc": "tsc --watch src/exercise1.ts",
     "lint": "eslint *.ts",
     "format": "prettier --write *.ts"
   },
