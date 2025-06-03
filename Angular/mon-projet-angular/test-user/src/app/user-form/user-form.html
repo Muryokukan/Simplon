@@ -1,0 +1,61 @@
+<div class="form-container">
+    <h2>Formulaire Utilisateur</h2>
+    
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <!-- Champ Prénom -->
+      <div class="form-group">
+        <label for="firstName">Prénom :</label>
+        <input 
+          type="text" 
+          id="firstName" 
+          formControlName="firstName"
+          [class.error]="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched">
+        
+        <div *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched" class="error-message">
+          Le prénom est obligatoire
+        </div>
+      </div>
+  
+      <!-- Champ Nom -->
+      <div class="form-group">
+        <label for="lastName">Nom :</label>
+        <input 
+          type="text" 
+          id="lastName" 
+          formControlName="lastName"
+          [class.error]="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched">
+        
+        <div *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched" class="error-message">
+          Le nom est obligatoire
+        </div>
+      </div>
+  
+      <!-- Champ Email -->
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input 
+          type="email" 
+          id="email" 
+          formControlName="email"
+          [class.error]="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+        
+        <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error-message">
+          <span *ngIf="userForm.get('email')?.errors?.['required']">L'email est obligatoire</span>
+          <span *ngIf="userForm.get('email')?.errors?.['email']">Format d'email invalide</span>
+        </div>
+      </div>
+  
+      <!-- Bouton Submit -->
+      <button type="submit" [disabled]="userForm.invalid">Soumettre</button>
+    </form>
+  
+    <!-- Affichage des données soumises -->
+      <div *ngIf="submittedUser" class="submitted-data">
+        <h3>Données soumises :</h3>
+        <p><strong>Prénom:</strong> {{ submittedUser!.firstName }}</p>
+        <p><strong>Nom:</strong> {{ submittedUser!.lastName }}</p>
+        <p><strong>Email:</strong> {{ submittedUser!.email }}</p>
+      </div>
+      
+  </div>
+  
