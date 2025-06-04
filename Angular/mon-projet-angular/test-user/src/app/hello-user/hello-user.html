@@ -1,4 +1,8 @@
-<h2>Bonjour {{ nameUser }} !</h2>
+<!-- <h2>Bonjour {{ nameUser }} !</h2> -->
+ 
+ <div *ngIf="nameUser !== 'Anonymous'">
+    <h3>Bienvenue {{ nameUser }} !</h3>
+</div>
 <p>Nombre de clics: {{ count }}</p>
 
 <button (click)="incrementCount()">Clic</button>
@@ -6,3 +10,4 @@
     <label>nom: </label>
     <input [(ngModel)]="nameUser" type="text">
 </div>
+
