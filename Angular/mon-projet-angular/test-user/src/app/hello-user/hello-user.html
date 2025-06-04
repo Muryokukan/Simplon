@@ -1,9 +1,17 @@
 <!-- <h2>Bonjour {{ nameUser }} !</h2> -->
  
- <div *ngIf="nameUser !== 'Anonymous'">
+ <div *ngIf="nameUser !== 'Anonymous' && nameUser !== '' ">
     <h3>Bienvenue {{ nameUser }} !</h3>
 </div>
 <p>Nombre de clics: {{ count }}</p>
+
+<div *ngIf="count > 5; else pasAssez">
+  <p>Bravo ! Vous avez cliqué plus de 5 fois ! 🎉</p>
+</div>
+
+<ng-template #pasAssez>
+  <p>Cliquez encore pour atteindre 5 clics !</p>
+</ng-template>
 
 <button (click)="incrementCount()">Clic</button>
 <div>
@@ -11,3 +19,20 @@
     <input [(ngModel)]="nameUser" type="text">
 </div>
 
+<br>
+
+<h4>liste de fruits</h4>
+<ul>
+    <li *ngFor="let fruit of fruits">{{ fruit }}</li>
+</ul>
+
+<br>
+
+<div *ngIf="fruits.length > 0">
+  <h4>Mes fruits préférés :</h4>
+  <ul>
+    <li *ngFor="let fruit of fruits; let i = index">
+      {{ i + 1 }}. {{ fruit }}
+    </li>
+  </ul>
+</div>

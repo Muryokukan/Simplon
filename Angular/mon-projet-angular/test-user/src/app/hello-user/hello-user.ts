@@ -12,6 +12,8 @@ export class HelloUser {
   nameUser: string = "Anonymous";
   count: number = 0;
 
+  fruits: string[] = ['Pomme', 'Banane', 'Orange', 'Fraise'];
+
   incrementCount() {
     this.count++;
   }
