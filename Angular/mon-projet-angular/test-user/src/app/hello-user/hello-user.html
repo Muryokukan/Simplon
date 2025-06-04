@@ -1,0 +1,8 @@
+<h2>Bonjour {{ nameUser }} !</h2>
+<p>Nombre de clics: {{ count }}</p>
+
+<button (click)="incrementCount()">Clic</button>
+<div>
+    <label>nom: </label>
+    <input [(ngModel)]="nameUser" type="text">
+</div>
