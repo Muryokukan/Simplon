@@ -60,3 +60,67 @@
 | `\x` | Basculer en mode "affichage étendu" |
 | `\! commande` | Exécuter une commande shell |
 | `\set variable valeur` | Définir une variable |
+|  '\! cls' | Rafraichir la console |
+
+## Connexion
+```bash
+psql -U username -d dbname -h host -p port
+
+Bases de données
+CREATE DATABASE dbname;      -- Créer
+\l                         -- Lister
+\c dbname                  -- Se connecter
+DROP DATABASE dbname;       -- Supprimer
+
+Tables
+CREATE TABLE table_name (col1 type, col2 type);
+\dt                        -- Lister
+\d table_name              -- Structure
+DROP TABLE table_name;     -- Supprimer
+ALTER TABLE old RENAME TO new; -- Renommer
+
+CRUD
+-- Create
+INSERT INTO table (col1, col2) VALUES (val1, val2);
+
+-- Read
+SELECT col1, col2 FROM table WHERE condition;
+
+-- Update
+UPDATE table SET col1 = val1 WHERE condition;
+
+-- Delete
+DELETE FROM table WHERE condition;
+
+Requêtes avancées
+-- Jointures
+SELECT * FROM table1 JOIN table2 ON table1.id = table2.id;
+
+-- Agrégations
+SELECT col1, COUNT(*), AVG(col2)
+FROM table
+GROUP BY col1
+HAVING COUNT(*) > 5;
+
+-- Tri et limite
+SELECT * FROM table
+ORDER BY col1 DESC
+LIMIT 10 OFFSET 5;
+
+Index
+CREATE INDEX idx_name ON table(col);
+CREATE UNIQUE INDEX idx_name ON table(col);
+DROP INDEX idx_name;
+
+Transactions
+BEGIN;
+-- Requêtes
+COMMIT; -- ou ROLLBACK;
+
+Sauvegarde/Restauration
+pg_dump -U user -d dbname -f backup.sql
+psql -U user -d dbname -f backup.sql
+
+Commandes psql utiles
+\q (Quitter) | \h (Aide) | \dt (Tables) | \d table (Structure)
+\e (Éditer) | \i fichier.sql (Exécuter fichier)
