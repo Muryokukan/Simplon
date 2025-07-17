@@ -1,0 +1,16 @@
+﻿@{
+    ViewData["Title"] = "Accueil";
+}
+
+<h1>Page d'accueil</h1>
+
+@if (TempData["Message"] != null)
+{
+    <div style="color: green; font-weight: bold;">
+        @TempData["Message"]
+    </div>
+}
+
+<form asp-action="CreateMessage" method="post">
+    <button type="submit">Créer un message</button>
+</form>

@@ -1,0 +1,11 @@
+﻿@TestAPI Solo_HostAddress = http://localhost:5109
+
+POST {{TestAPI Solo_HostAddress}}/todoitems
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "feed fish",
+  "isComplete": false
+}
+###
