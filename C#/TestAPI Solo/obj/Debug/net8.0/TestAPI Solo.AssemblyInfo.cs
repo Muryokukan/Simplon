@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TestAPI Solo")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f2f587cdca107d6d6101760ead841008059817c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a5b2e4e61d06d5d8cb595e626cb9a8a6937edb06")]
 [assembly: System.Reflection.AssemblyProductAttribute("TestAPI Solo")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TestAPI Solo")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
