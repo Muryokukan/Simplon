@@ -11,6 +11,9 @@
 *   Principe de conception qui découple les composants en leur fournissant leurs dépendances externes (services) plutôt que de les laisser les créer eux-mêmes.
 *   Améliore la modularité, la testabilité et la maintenabilité du code.
 
+*   **Définition** : L'Injection de Dépendances (DI) est un principe de conception logicielle où les dépendances d'un objet (les autres objets ou services dont il a besoin pour fonctionner) sont fournies ("injectées") de l'extérieur, plutôt que d'être créées par l'objet lui-même. Cela favorise le découplage entre les composants, rendant le code plus modulaire, plus facile à tester et à maintenir.
+*   **Analogie** : Imaginez un constructeur de maison : il a besoin d'outils comme un marteau et une scie. Au lieu que le constructeur fabrique lui-même ces outils, la DI suggère que quelqu'un d'autre (un "injecteur" ou un "conteneur DI") lui fournisse les outils nécessaires. Le constructeur peut alors se concentrer uniquement sur la construction de la maison, sans se soucier de la création ou de la gestion de ses outils.
+
 ### 4. Inversion de Contrôle (IoC) (Singleton, Scoped, Transients)
 *   Principe plus général dont l'injection de dépendances est une implémentation.
 *   ASP.NET Core offre un conteneur IoC intégré pour gérer la durée de vie des services :
