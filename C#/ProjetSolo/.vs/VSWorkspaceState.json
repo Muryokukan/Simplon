@@ -1,6 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Models",
+    "\\wwwroot",
+    "\\wwwroot\\lib",
+    "\\wwwroot\\lib\\admin-lte"
   ],
   "SelectedNode": "\\ProjetSolo.sln",
   "PreviewInSolutionExplorer": false
