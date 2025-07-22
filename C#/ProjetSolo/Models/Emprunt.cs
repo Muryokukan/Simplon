@@ -7,7 +7,7 @@
         public DateTime DateRetourPrevue { get; set; }
         public DateTime? DateRetourEffective { get; set; } // Nullable car pas encore retourné
 
-        // Clés étrangères
+        // Clés étrangère
         public int LivreId { get; set; }
         public int UtilisateurId { get; set; }
 

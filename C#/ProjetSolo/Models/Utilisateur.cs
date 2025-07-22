@@ -7,7 +7,7 @@
         public string Email { get; set; } = string.Empty;
         public DateTime DateInscription { get; set; }
 
-        // Relation avec les emprunts
+        // Relation avec les emprunt
         public List<Emprunt> Emprunts { get; set; } = new List<Emprunt>();
     }
 }
